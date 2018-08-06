@@ -1,4 +1,4 @@
-import uuid from uuid;
+import uuid from 'uuid';
 
 /*typy akcji*/
 export const ADD_COMMENT = 'ADD_COMMENT';
@@ -45,8 +45,10 @@ function thumbDownComment(id) {
     }
 }
 
-export default addComment;
-export default removeComment;
-export default editComment;
-export default thumbUpComment;
-export default thumbDownComment;
+export {
+    addComment,
+    removeComment,
+    editComment,
+    thumbUpComment,
+    thumbDownComment
+}
