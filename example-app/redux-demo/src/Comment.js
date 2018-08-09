@@ -2,6 +2,6 @@
 
 import React from 'react';
 
-const Comment = ({text, votes}) => <li>{text} <span>votes: {votes}</span></li>;
+const Comment = ({text, votes}) => <li>{text} <span>votes: {votes}</span></li>; //niech renderuja ise buttony i reaguja na klik --> store dispatch
 
 export default Comment;

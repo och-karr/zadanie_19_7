@@ -4,7 +4,7 @@ import {EDIT_COMMENT} from './actions';
 import {THUMB_UP_COMMENT} from './actions';
 import {THUMB_DOWN_COMMENT} from './actions';
 
-function comments(state = [], action) {
+export function comments(state = [], action) {
     switch(action.type) {
         case ADD_COMMENT:
             return [{
@@ -12,15 +12,15 @@ function comments(state = [], action) {
                 text: action.text,
                 votes: 0
             }
-            , ...state.comments];  //tablica komentarzy 
+            , ...state];  //tablica komentarzy (wcześniej - ...state.comments)
 
         case REMOVE_COMMENT:
-            return [{
-                comments: state.comments.filter(comment => comment.id !== action.id) //comments: (tabl comments przyjmuje od nowa)
-            }];
+            return [
+                state.filter(comment => comment.id !== action.id) //comments: (tabl comments przyjmuje od nowa)
+            ];
         
         case EDIT_COMMENT:
-            var newArr = state.comments.map((comment)=>{
+            var newArr = state.map((comment)=>{
                 if(comment.id !== action.id){
                     return comment;
                 } else {
@@ -28,12 +28,10 @@ function comments(state = [], action) {
                     return comment;
                 }
             })
-            return [{
-                comments: newArr
-            }];
+            return newArr;
         
         case THUMB_UP_COMMENT:
-            var newArr = state.comments.map((comment)=>{
+            var newArr = state.map((comment)=>{
                 if(comment.id !== action.id){
                     return comment;
                 } else {
@@ -41,12 +39,10 @@ function comments(state = [], action) {
                     return comment;
                 }
             })
-            return [{
-                comments: newArr
-            }];
+            return newArr;
         
         case THUMB_DOWN_COMMENT:
-            var newArr = state.comments.map((comment)=>{
+            var newArr = state.map((comment)=>{
                 if(comment.id !== action.id){
                     return comment;
                 } else {
@@ -54,13 +50,9 @@ function comments(state = [], action) {
                     return comment;
                 }
             })
-            return [{
-                comments: newArr
-            }];
+            return newArr;
 
         default:
             return state;
     }
 }
-
-export default {comments}
