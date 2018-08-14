@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducer from './reducer.js';
 import {addComment} from './actions.js';
-import {removeComment} from './actions.js';
-import {editComment} from './actions.js';
-import {thumbUpComment} from './actions.js';
-import {thumbDownComment} from './actions.js';
+// import {removeComment} from './actions.js';
+// import {editComment} from './actions.js';
+// import {thumbUpComment} from './actions.js';
+// import {thumbDownComment} from './actions.js';
 
 const store = createStore(reducer);
 
